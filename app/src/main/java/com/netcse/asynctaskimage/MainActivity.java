@@ -2,39 +2,108 @@ package com.netcse.asynctaskimage;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 
 public class MainActivity extends AppCompatActivity {
-    ImageView iv;
-    TextView tv;
+//    ImageView iv;
+//    TextView tv;
+
+
+    @Override
+    protected  void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        ScrollView sv = new ScrollView(this);
+
+        LinearLayout ll = new LinearLayout(this);
+
+        ll.setOrientation(LinearLayout.VERTICAL);
+
+        sv.addView(ll);
+
+
+
+        TextView tv = new TextView(this);
+
+        tv.setText("Dynamic layouts ftw!");
+
+        ll.addView(tv);
+
+
+
+        EditText et = new EditText(this);
+
+        et.setText("");
+
+        ll.addView(et);
+
+
+
+        Button b = new Button(this);
+
+        b.setText("DButton");
+
+        ll.addView(b);
+
+
+
+        for(int i = 0; i < 200; i++) {
+
+            CheckBox cb = new CheckBox(this);
+
+            cb.setText("I'm dynamic!");
+
+            ll.addView(cb);
+
+        }
+
+        this.setContentView(sv);
+
+    }
+
+/*
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        iv = (ImageView) findViewById(R.id.imageDownload);
-        tv = (TextView) findViewById(R.id.confirmText);
-
-        AsyncTaskCall asyncTaskCall = new AsyncTaskCall(tv, iv);
+//        setContentView(R.layout.activity_main);
+//
+//        iv = (ImageView) findViewById(R.id.imageDownload);
+//        tv = (TextView) findViewById(R.id.confirmText);
+//
+//        AsyncTaskCall asyncTaskCall = new AsyncTaskCall(tv, iv);
         String url = "https://www.google.com.bd/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png";
-        asyncTaskCall.execute(url);
+//        asyncTaskCall.execute(url);
 
 
         // Dynamic UI Elements
 
+        ImageView imageViewDynamic = new ImageView(this);
+        TextView textViewDynamic = new TextView(this);
+
+        AsyncTaskCall asyncTaskCall = new AsyncTaskCall(textViewDynamic, imageViewDynamic);
+        asyncTaskCall.execute(url);
+
+
         Button myButton = new Button(this);
         myButton.setText("Press me");
 
-        myButton.setBackgroundColor(Color.YELLOW);
+        myButton.setBackgroundColor(Color.MAGENTA);
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,21 +156,29 @@ public class MainActivity extends AppCompatActivity {
 // end of file:///C:/Android/SDK/docs/training/basics/intents/sending.html
 
 
-
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Can't do that", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+
+
+
         RelativeLayout myLayout = new RelativeLayout(this);
-        myLayout.setBackgroundColor(Color.BLUE);
+        myLayout.setBackgroundColor(Color.GRAY);
 
         myLayout.addView(myButton);
+
+        myLayout.addView(imageViewDynamic);
+        myLayout.addView(textViewDynamic);
         setContentView(myLayout);
 
 
     }
+
+
+*/
 
 }
 
