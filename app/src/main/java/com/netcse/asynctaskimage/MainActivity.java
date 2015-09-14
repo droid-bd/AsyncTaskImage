@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 // end of file:///C:/Android/SDK/docs/training/basics/intents/sending.html
 
+
+
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Can't do that", Toast.LENGTH_SHORT).show();
                 }
