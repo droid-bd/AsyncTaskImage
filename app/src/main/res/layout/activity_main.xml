@@ -30,7 +30,8 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="Not yet"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 
